@@ -1,0 +1,24 @@
+@model WebFiles.Areas.Admin.ViewModels.HomeIndexViewModel
+
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col-12">
+            <a href="/admin/users" class="btn btn-primary">Users</a>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12">
+            <a href="/admin/files" class="btn btn-success">Files</a>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12">
+            <a href="/admin/notes" class="btn btn-primary">Notes</a>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12">
+            <p>Available space @(Model.FreeSpace / 1_048_576) MB</p>
+        </div>
+    </div>
+</div>

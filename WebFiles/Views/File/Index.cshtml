@@ -1,0 +1,21 @@
+@using WebFiles.ViewModels
+@model FileIndexViewModel
+
+<div id="app1">
+    <div class="container-fluid d-flex justify-content-center align-items-center" id="file-upload-form-container">
+        <div class="row">
+            <div class="col-12">
+                <form action="/file/upload" method="post" v-on:submit.prevent="uploadFile($event)" enctype="multipart/form-data">
+                    File : <input type="file" name="file" id="file" v-on:change="changeName($event)" required><br>
+                    Name : <input v-bind:value="fileName" type="text" name="Name" id="Name" required><br>
+                    Is public : <input type="checkbox" name="IsPublic" id="IsPublic"><br>
+                    <input type="submit" value="Upload" class="btn btn-success">
+                    <p>Remaining space : @Model.RemainingSpace MB</p>
+                    <p>Maximum upload size : @Model.AllowedUploadSize</p>
+                    <p v-if="isUploading">{{ progress }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/app1.js"></script>

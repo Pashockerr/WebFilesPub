@@ -1,0 +1,26 @@
+<div id="app">
+    <div class="container-fluid d-flex justify-content-center align-items-center" id="auth-forms-container">
+        <div class="row">
+            <div class="col-12">
+                <button v-on:click="loginSwitch()" class="btn btn-primary switch-button">Login</button><button v-on:click="registrationSwitch()" class="btn btn-primary switch-button">Registration</button>
+                <div id="login-form" v-if="login">
+                    <h1>Login</h1>
+                    <form action="/account/login" method="post">
+                        <p>Username : <input type="text" name="username" id="username-login-field"></p>
+                        <p>Password : <input type="password" name="password" id="password-login-field"></p>
+                        <input type="submit" value="Login" class="btn btn-success">
+                    </form>
+                </div>
+                <div id="registration-form" v-if="!login">
+                    <h1>Registration</h1>
+                    <form action="/account/register" method="post">
+                        <p>Username : <input type="text" name="username" id="username-register-field"></p>
+                        <p>Password : <input type="password" name="password" id="password-register-field"></p>
+                        <input type="submit" value="Register" class="btn btn-success">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/app.js"></script>

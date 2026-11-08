@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <form action="/note/add" method="post">
+        <div class="row">
+            <div class="col-12">
+                Name : <input type="text" name="name"></input>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                Title : <input type="text" name="title"></input>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <textarea name="text" id="mdEditor" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <span>Is public : <input type="checkbox" name="isPublic"/></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <input type="submit" value="Save"></input>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button type="button" id="previewUpdateButton">Update preview</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="mdPreview"></div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="/js/marked.min.js"></script>
+<script type="text/javascript" src="/js/mdUpdater.js"></script>

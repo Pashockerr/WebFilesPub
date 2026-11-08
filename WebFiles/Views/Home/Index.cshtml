@@ -1,0 +1,38 @@
+﻿@using WebFiles.ViewModels
+@model HomeIndexViewModel
+
+<div class="container-fluid d-flex justify-content-center align-items-center" id="link-block">
+    <div class="row text-center">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="col-12">
+                @if(Model.IsAdmin){
+                    <a href="/admin" class="account-link">Admin panel</a> 
+                }
+                <a href="/account/manage" class="account-link">@User.Identity.Name</a>
+                <a href="/account/logout" class="account-link">Logout</a>
+            </div>
+        }
+        else
+        {
+            <div class="col-12">
+                <a href="/account" class="account-links">Account</a>
+            </div>
+        }
+    </div>
+</div>
+<div class="container-fluid d-flex justify-content-center align-items-center" id="title-block">
+    <div class="row">
+        <div class="col-12">
+            <h1>WebFiles</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a href="/file" class="btn btn-success">Upload file</a>
+        </div>
+        <div class="col-6">
+            <a href="/note" class="btn btn-primary">Add note</a>
+        </div>
+    </div>
+</div>

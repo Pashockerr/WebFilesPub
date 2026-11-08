@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+      <UserSecretsId>8d855670-cd42-4020-a53d-34ec91d9b445</UserSecretsId>
+  </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.7" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.8" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.5" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
+        <PackageReference Include="Westwind.AspNetCore.Markdown" Version="3.9.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Areas\Admin\Controllers\" />
+        <Folder Include="Areas\Admin\Views\" />
+        <Folder Include="Migrations" />
+        <Folder Include="Views\Error\" />
+        <Folder Include="Areas\Admin\Controllers\" />
+        <Folder Include="Areas\Admin\Views\" />
+        <Folder Include="Properties\PublishProfiles" />
+        <Folder Include="Views\Error\" />
+    </ItemGroup>
+
+</Project>

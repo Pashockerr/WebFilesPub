@@ -1,0 +1,7 @@
+@using Westwind.AspNetCore.Markdown
+@model WebFiles.ViewModels.NoteGetViewModel
+
+<h1>@Model.Note.Title</h1>
+<div id="mdPreview">
+    @Markdown.ParseHtmlString(@Model.Note.Text)
+</div>

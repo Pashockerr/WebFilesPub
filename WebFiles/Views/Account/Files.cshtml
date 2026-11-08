@@ -1,0 +1,93 @@
+﻿@model WebFiles.ViewModels.AccountFilesViewModel
+@using Microsoft.AspNetCore.StaticFiles
+
+<h1>Files</h1>
+<form action="/account/files" method="get">
+    <input type="text" name="query" placeholder="File name"></input>
+    <input type="submit" value="Search"></input>
+</form>
+@{
+    var typeProvider = new FileExtensionContentTypeProvider();
+    string contentType;
+}
+@foreach (var file in Model.Files)
+{
+    <hr/>
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td>@file.Name</td>
+        </tr>
+        <tr>
+            <td>Size</td>
+            <td>@((int)(file.Size / 1_048_576)) MB</td>
+        </tr>
+        <tr>
+            <td>View</td>
+            <td>
+                <a href="/file/get/@(file.Id.ToString() + System.IO.Path.GetExtension(file.Name))">@file.Name</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Download</td>
+            <td>
+                <a href="/file/get/@(file.Id.ToString() + System.IO.Path.GetExtension(file.Name))?download">@file.Name</a>
+            </td>
+        </tr>
+        @if (typeProvider.TryGetContentType(@file.Name, out contentType))
+        {
+            @if (contentType.Contains("video"))
+            {
+                <tr>
+                    <td>Watch in videoplayer</td>
+                    <td>
+                        <a href="/file/watchvideo/@(file.Id.ToString() + System.IO.Path.GetExtension(file.Name))">Watch</a>
+                    </td>
+                </tr>
+            }
+        }
+
+        <tr>
+            <td>Is public</td>
+            <td>@file.IsPublic</td>
+        </tr>
+        <tr>
+            <td>Change IsPublic</td>
+            <td>
+                <form action="/file/changepublic/@file.Id" onsubmit="return confirm('Are you sure?');" method="post">
+                    <input type="submit" class="btn btn-primary" value="Change"/>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Delete</td>
+            <td>
+                <form action="/file/delete/@file.Id" onsubmit="return confirm('Are you sure?');" method="post">
+                    <input type="submit" class="btn btn-danger" value="Delete"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <hr/>
+}
+<span>
+    @if (Model.CurrentPage > 0 && Model.PagesTotal > 1)
+    {
+        <span>|<a href="/account/files/@(Model.CurrentPage - 1)">Previous</a>|</span>
+    }
+    @for (int i = 0; i < Model.PagesTotal; i++)
+    {
+        @if (Model.CurrentPage == i)
+        {
+            <span>|@(i + 1)|</span>
+        }
+        else
+        {
+            <span>|<a href="/account/files/@i">@(i + 1)</a>|</span>
+        }
+    }
+    @if (Model.CurrentPage + 1 < Model.PagesTotal)
+    {
+        <span>|<a href="/account/files/@(Model.CurrentPage + 1)">Next</a>|</span>
+    }
+</span>

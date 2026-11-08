@@ -1,0 +1,46 @@
+html, body {
+    height: 100%;
+}
+
+.account-link {
+    margin: 10px;
+}
+
+#title-block {
+    height: 100%;
+    flex-direction: column;
+}
+
+.footer-link {
+    padding-bottom: 10px;
+}
+
+#auth-forms-container, #app {
+    height: 100%;
+}
+
+.switch-button {
+    margin: 10px;
+}
+
+#file-upload-form-container, #app1 {
+    height: 100%;
+}
+
+textarea{
+    white-space: nowrap;
+    resize: both;
+    width: 100%;
+}
+
+#mdPreview{
+    white-space: pre-wrap;
+}
+
+#mdPreview img, video{
+    max-width: 100%;
+}
+
+video{
+    max-width: 100%;
+}

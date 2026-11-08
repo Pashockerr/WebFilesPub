@@ -1,0 +1,19 @@
+﻿@model WebFiles.ViewModels.FileWatchVideoViewModel
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div data-vjs-player>
+                <video
+                    id="my-video"
+                    class="video-js"
+                    controls
+                    preload="auto"
+                    data-setup='{}'>
+                    <source src="@Model.Url">
+                </video>
+            </div>
+            <script src="/js/video.min.js" type="text/javascript"></script>
+        </div>
+    </div>
+</div>
